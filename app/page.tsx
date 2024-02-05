@@ -1,5 +1,8 @@
 import { Container } from '@/components/Container'
 import Header from '@/components/Header'
+import { Button } from '@/components/ui/button'
+import Link from 'next/link'
+import { ArrowDownIcon } from '@radix-ui/react-icons'
 
 export default function Home() {
   return (
@@ -56,7 +59,22 @@ export default function Home() {
 
       <Container>
         <div className='mt-20'>
-          <Container>{/* Add Experience component here */}</Container>
+          <Container>
+            <div className='sm:flex justify-between items-end'>
+              <div className='text-3xl font-bold tracking-tight text-zinc-800 sm:text-4xl block'>
+                Experience
+              </div>
+              <div className='inline-block'>
+                <Button variant='outline' asChild>
+                  <Link href='#'>
+                    <ArrowDownIcon className='mr-2 h-4 w-4' />
+                    Download CV
+                  </Link>
+                </Button>
+              </div>
+            </div>
+            {/* Add Experience component here */}
+          </Container>
         </div>
       </Container>
     </>
