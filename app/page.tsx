@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 import { ArrowDownIcon } from '@radix-ui/react-icons'
 import WorkProfile from '@/components/WorkProfile'
+import workExperienceData from './workExperienceData.json'
 
 export default function Home() {
   return (
@@ -74,24 +75,10 @@ export default function Home() {
                 </Button>
               </div>
             </div>
-
             <div className='grid gap-14 mt-6'>
-              <WorkProfile
-                name='Seek Capital'
-                title='Full Stack Software Engineer'
-                location='Los Angeles, CA'
-                start='February 2023'
-                end='Present'
-                bullets={[
-                  'Currently upgrading a legacy WordPress corporate site to modern standards using React and Next.js framework, with ongoing feature additions and legacy code migration.',
-                  'Leading daily stand-ups with an offshore development team to streamline project updates and issue tracking.',
-                  'Managing AWS infrastructure to ensure smooth operations and conducting routine maintenance.',
-                  'Implementing a weekly reporting system for inbound leads by Experian.',
-                  'Establishing secure reporting for SoFi using encryption with PGP for enhanced data protection.',
-                ]}
-              />
-
-              {/* Add Experience component here */}
+              {workExperienceData.map((work, index) => (
+                <WorkProfile key={index} {...work} />
+              ))}
             </div>
           </Container>
         </div>
