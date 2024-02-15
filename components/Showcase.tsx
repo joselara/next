@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons'
+import Image from 'next/image'
 
 interface Props {
   images: string[]
@@ -48,9 +49,12 @@ const Showcase: React.FC<Props> = ({ images }: { images: string[] }) => {
               }`,
             }}
           >
-            <img
+            <Image
+              width={320}
+              height={280}
               src={image}
               className='absolute inset-0 h-full w-full object-cover'
+              alt='Showcase Image'
             />
           </div>
         ))}
