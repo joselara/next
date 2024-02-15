@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { ArrowDownIcon } from '@radix-ui/react-icons'
 import WorkProfile from '@/components/WorkProfile'
 import workExperienceData from './workExperienceData.json'
+import Showcase from '@/components/Showcase'
 
 export default function Home() {
   return (
@@ -57,7 +58,19 @@ export default function Home() {
         </div>
       </Container>
 
-      {/* Showreel component goes here */}
+      <Showcase
+        images={[
+          '/lala-1.png',
+          '/lala-2.png',
+          '/lala-3.png',
+          '/lala-4.png',
+          '/lala-5.png',
+          '/rds-app-2.png',
+          '/rds-app-4.png',
+          '/rds-app-7.png',
+          '/rds-app-8.png',
+        ]}
+      />
 
       <Container>
         <div className='mt-20'>
