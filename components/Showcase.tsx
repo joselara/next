@@ -13,16 +13,6 @@ const Showcase: React.FC<Props> = ({ images }: { images: string[] }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [duplicatedImages, setDuplicatedImages] = useState<string[]>([])
 
-  const generateRotations = () => {
-    if (duplicatedImages.length) {
-      setRotations(
-        Array.from({ length: duplicatedImages.length }, (_, index) =>
-          index % 2 === 0 ? 'rotate(2deg)' : 'rotate(-2deg)'
-        )
-      )
-    }
-  }
-
   const nextImage = () => {
     setCurrentIndex((currentIndex + 1) % images.length)
   }
@@ -32,9 +22,18 @@ const Showcase: React.FC<Props> = ({ images }: { images: string[] }) => {
   }
 
   useEffect(() => {
+    const generateRotations = () => {
+      if (duplicatedImages.length) {
+        setRotations(
+          Array.from({ length: duplicatedImages.length }, (_, index) =>
+            index % 2 === 0 ? 'rotate(2deg)' : 'rotate(-2deg)'
+          )
+        )
+      }
+    }
     setDuplicatedImages([...images, ...images])
     generateRotations()
-  }, [images])
+  }, [images, duplicatedImages.length])
 
   return (
     <div className='mt-10 sm:mt-16'>
